@@ -1,0 +1,12 @@
+import cv2
+
+img = cv2.imread("image.jpg")
+
+cropped = img[50:150, 50:150]
+
+img[200:300, 200:300] = cropped
+
+cv2.imshow("Modified Image", img)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
