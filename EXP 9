@@ -1,0 +1,27 @@
+import cv2
+import numpy as np
+
+cap = cv2.VideoCapture("sample.mp4")
+
+while True:
+
+    ret, frame = cap.read()
+
+    if not ret:
+        break
+
+    rows, cols = frame.shape[:2]
+
+    matrix = np.eye(3)
+
+    output = cv2.warpPerspective(frame,
+                                  matrix,
+                                  (cols, rows))
+
+    cv2.imshow("Perspective Video", output)
+
+    if cv2.waitKey(30) == 27:
+        break
+
+cap.release()
+cv2.destroyAllWindows()
