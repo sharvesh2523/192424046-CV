@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+
+img = cv2.imread("image.jpg")
+
+rows, cols = img.shape[:2]
+
+H = np.eye(3)
+
+result = cv2.warpPerspective(img,
+                              H,
+                              (cols, rows))
+
+cv2.imshow("Original", img)
+cv2.imshow("DLT Result", result)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
